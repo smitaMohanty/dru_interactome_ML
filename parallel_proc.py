@@ -53,9 +53,8 @@ if __name__ == '__main__':
              #prots[i]=[opnfil (j) for j in open(i)]
              prots[i]=parallel(delayed(opnfil) (j) for j in open(i))
              corr=parallel(delayed(get_correl) (prots[i],prots[k],corr,i,k) for k in prots.keys())   
-             """
+             print(corr)
              for j in prots.keys():             
                  if i != j:
-                    corr=get_correl(j,i,prots,corr)    
-             """       
+                    corr=get_correl(j,i,prots,corr)   
     print (time.time()-now)
